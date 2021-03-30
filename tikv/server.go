@@ -15,6 +15,7 @@ package tikv
 
 import (
 	"context"
+	"github.com/pingcap/kvproto/pkg/coprocessor_v2"
 	"io"
 	"sync"
 	"sync/atomic"
@@ -369,6 +370,22 @@ func (svr *Server) KvCommit(ctx context.Context, req *kvrpcpb.CommitRequest) (*k
 func (svr *Server) RawGetKeyTTL(ctx context.Context, req *kvrpcpb.RawGetKeyTTLRequest) (*kvrpcpb.RawGetKeyTTLResponse, error) {
 	// TODO
 	return &kvrpcpb.RawGetKeyTTLResponse{}, nil
+}
+
+func (svr *Server) RawCompareAndSwap(c context.Context, request *kvrpcpb.RawCASRequest) (*kvrpcpb.RawCASResponse, error) {
+	return &kvrpcpb.RawCASResponse{}, nil
+}
+
+func (svr *Server) RawChecksum(c context.Context, request *kvrpcpb.RawChecksumRequest) (*kvrpcpb.RawChecksumResponse, error) {
+	return &kvrpcpb.RawChecksumResponse{}, nil
+}
+
+func (svr *Server) RawSplitRegion(c context.Context, request *kvrpcpb.SplitRegionRequest) (*kvrpcpb.SplitRegionResponse, error) {
+	return &kvrpcpb.SplitRegionResponse{}, nil
+}
+
+func (svr *Server) CoprocessorV2(c context.Context, request *coprocessor_v2.RawCoprocessorRequest) (*coprocessor_v2.RawCoprocessorResponse, error) {
+	return &coprocessor_v2.RawCoprocessorResponse{}, nil
 }
 
 func (svr *Server) KvImport(context.Context, *kvrpcpb.ImportRequest) (*kvrpcpb.ImportResponse, error) {
